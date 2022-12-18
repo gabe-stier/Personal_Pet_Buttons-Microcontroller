@@ -15,10 +15,12 @@ void send_signal_to_raspberry_pi(byte pin)
   switch (pin)
   {
   case 2:
-    Serial.println("Red has been pushed");
-    break;
+    Serial.print("Red has been pushed");
+    Serial.print("\n");
+     break;
   case 3:
-    Serial.println("Yellow has been pushed");
+    Serial.print("Yellow has been pushed");
+    Serial.print("\n"); 
     break;
   case 22:
     Serial.println();
@@ -83,9 +85,10 @@ void loop()
 void setup()
 {
   Serial.begin(115200);
-  Serial.println("I am alive");
-  // intialize all input pins that are hooked to buttons
-  for (byte thisPin = 0; thisPin < pinCount && thisPin < buttons_used; thisPin++)
+  Serial.print("I am alive");
+  Serial.print("\n");
+      // intialize all input pins that are hooked to buttons
+      for (byte thisPin = 0; thisPin < pinCount && thisPin < buttons_used; thisPin++)
   {
     pinMode(switchPins[thisPin], INPUT_PULLUP); // use internal pull up resistors
     lastButtonState[thisPin] = HIGH;            // assume all buttons are not pressed at the start
